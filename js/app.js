@@ -1,10 +1,11 @@
 'use strict';
 
 const Git = require('nodegit');
+const config = require('./js/config.js');
 
 let s = new sigma('graph-container');
 
-Git.Repository.open('')
+Git.Repository.open(config.repository)
     .then((repo) => {
         return repo.getMasterCommit();
     })
